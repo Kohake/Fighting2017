@@ -9,7 +9,10 @@ namespace FightingGame2017
 
         protected override void Start()
         {
-            
+            foreach (Player player in Game.Instance.Players)
+            {
+                // Create Character
+            }
         }
 
         protected override void Update()

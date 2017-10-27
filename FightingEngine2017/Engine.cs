@@ -5,12 +5,12 @@ namespace FightingEngine2017
 {
     public static class Engine
     {
-        public static GameObjectManager GameObjectManager = new GameObjectManager();
-        public static PhysicsManager PhysicsManager = new PhysicsManager();
-        //public static PlayerManager PlayerManager = new PlayerManager();
-        public static RenderManager RenderManager = new RenderManager();
-        public static WindowManager WindowManager = new WindowManager();
-        public static InputManager InputManager = new InputManager();
+        public readonly static GameObjectManager GameObjectManager = new GameObjectManager();
+        public readonly static PhysicsManager PhysicsManager = new PhysicsManager();
+        //public readonly static PlayerManager PlayerManager = new PlayerManager();
+        public readonly static RenderManager RenderManager = new RenderManager();
+        public readonly static WindowManager WindowManager = new WindowManager();
+        public readonly static InputManager InputManager = new InputManager();
         private static Game Game;
 
         private static bool isRunning = false;

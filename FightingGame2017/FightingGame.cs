@@ -7,15 +7,19 @@ using FightingEngine2017;
 
 namespace FightingGame2017
 {
-    public class FightingGame : Game
+    public class Game : FightingEngine2017.Game
     {
-        List<Player> players = new List<Player>();
+        public static Game Instance { get; private set; }
 
-        public FightingGame()
+        List<Player> players = new List<Player>();
+        public List<Player> Players { get { return players; } }
+
+        public Game()
         {
+            Instance = this;
         }
 
-        public override void Start()
+        public void Start()
         {
             WindowManager wm = Engine.WindowManager;
             wm.CreateWindow(800, 600, "Coolest Game Ever!11!", false);
@@ -31,7 +35,7 @@ namespace FightingGame2017
             //Engine.GameObjectManager.Add(new FightingState());
         }
 
-        public override void Update()
+        public void Update()
         {
             //TODO: Make some update code
             // Run state code stuff?
@@ -39,8 +43,8 @@ namespace FightingGame2017
             GameState.UpdateCurrent();
             GameState.SwitchToNextState();
         }
-        
-        public override void Shutdown()
+
+        public void Shutdown()
         {
 
         }

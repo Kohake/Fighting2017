@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace FightingEngine2017
 {
-    public abstract class Game
+    public interface Game
     {
-        // TODO: Make todo's
-        public Game()
-        {
-        }
-
-        public abstract void Start();
-        public abstract void Update();
-        public abstract void Shutdown();
+        void Start();
+        void Update();
+        void Shutdown();
     }
 }

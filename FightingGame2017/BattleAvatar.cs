@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FightingEngine2017
+namespace FightingGame2017
 {
-    public interface IDrawable
+    class BattleAvatar : Avatar
     {
-        void Draw();
+        
     }
 }

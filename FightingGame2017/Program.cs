@@ -12,7 +12,7 @@ namespace FightingGame2017
         [STAThread]
         static void Main(string[] args)
         {
-            Engine.Start(new FightingGame());
+            Engine.Start(new Game());
         }
     }
 }

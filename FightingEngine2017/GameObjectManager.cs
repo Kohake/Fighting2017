@@ -9,6 +9,12 @@ namespace FightingEngine2017
     // TODO: Add update order
     public class GameObjectManager
     {
+        public enum UpdateOrder
+        {
+            Player = int.MinValue,
+            Default = 0,
+        }
+
         List<GameObject> NewelyAddedGameObjects;
         List<GameObject> GameObjects;
         List<GameObject> RemovedGameObjects;
@@ -30,21 +36,26 @@ namespace FightingEngine2017
             RemovedGameObjects.Add(go);
         }
 
-        // TODO: Make this shit private, dude. Also, probably make it work as well...
-        public void SortByUpdateOrder()
+        private void SortByUpdateOrder()
         {
             GameObjects.Sort();
         }
 
         public void Update()
         {
-            foreach(GameObject go in NewelyAddedGameObjects)
+            bool shouldSort = false;
+
+            foreach (GameObject go in NewelyAddedGameObjects)
             {
                 go.Start();
+                shouldSort = true;
             }
 
             GameObjects.AddRange(NewelyAddedGameObjects);
             NewelyAddedGameObjects.Clear();
+
+            if (shouldSort)
+                SortByUpdateOrder();
 
             foreach (GameObject go in GameObjects)
             {

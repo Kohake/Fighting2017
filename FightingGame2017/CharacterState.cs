@@ -6,22 +6,25 @@ using System.Threading.Tasks;
 
 namespace FightingGame2017
 {
-    public abstract class GameState
+    public abstract class CharacterState
     {
         public enum StatePriority
         {
             BOTTOM,
-            LOW,
             DEFAULT,
-            HIGH,
-            TOP,
-            GOD
+            NORMAL,
+            SPECIAL,
+            SUPER,
+            NEGATIVE,
+            TOP
+        }
+        
+        public abstract string Name { get; }
+        public static Type StaticClass<T>() where T : CharacterState
+        {
+            return typeof(T);
         }
 
-        private static GameState CurrentState { get; set; }
-        private static GameState nextState;
-        public abstract string Name { get; }
-        
         /// <summary>
         /// Returns the priority of the current state.
         /// </summary>
@@ -30,7 +33,7 @@ namespace FightingGame2017
         {
             return StatePriority.DEFAULT;
         }
-
+        /*
         public static void RequestStateChange(GameState newState)
         {
             if (CurrentState != null && newState.Name == CurrentState.Name)
@@ -44,11 +47,11 @@ namespace FightingGame2017
 
         public static void SwitchToNextState()
         {
-            if(nextState != null)
+            if (nextState != null)
             {
-                if(CurrentState != null)
+                if (CurrentState != null)
                     CurrentState.End();
-                
+
                 CurrentState = nextState;
                 CurrentState.Start();
             }
@@ -60,7 +63,7 @@ namespace FightingGame2017
         {
             CurrentState.Update();
         }
-
+        */
         protected virtual void Start() { }
         protected virtual void Update() { }
         protected virtual void End() { }

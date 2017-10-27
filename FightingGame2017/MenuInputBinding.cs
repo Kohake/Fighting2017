@@ -4,7 +4,7 @@ using FightingEngine2017;
 
 namespace FightingGame2017
 {
-    class MenuInputBinding
+    public class MenuInputBinding
     {
         public enum Button
         {
@@ -18,7 +18,12 @@ namespace FightingGame2017
             Size
         }
 
-        private Dictionary<Button, List<InputManager.Key>> buttons = new Dictionary<Button, List<InputManager.Key>>();
+        private readonly Dictionary<Button, List<InputManager.Key>> buttons = new Dictionary<Button, List<InputManager.Key>>();
+
+        public List<InputManager.Key> GetKeys(Button button)
+        {
+            return buttons[button];
+        }
 
         public MenuInputBinding()
         {

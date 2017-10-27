@@ -18,10 +18,20 @@ namespace FightingGame2017
 
         protected override void Update()
         {
+            foreach (Player player in Game.Instance.Players)
+            {
+                MenuInputBinding binding = player.MenuBindings;
+                List<InputManager.Key> selectKeys = binding.GetKeys(MenuInputBinding.Button.Select);
 
-
-            if (InputManager.IsKeyDown(InputManager.Key.Space))
-                RequestStateChange(new BattleState());
+                foreach (InputManager.Key key in selectKeys)
+                {
+                    if(InputManager.IsKeyDown(key))
+                    {
+                        RequestStateChange(new BattleState());
+                        return;
+                    }
+                }
+            }
         }
     }
 }

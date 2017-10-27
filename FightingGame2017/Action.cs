@@ -9,6 +9,8 @@ namespace FightingGame2017
 {
     abstract class Action
     {
-        GameState targetState;
+        CharacterState targetState;
+        int priority;
+        //List<Condition> conditions;
     }
 }
