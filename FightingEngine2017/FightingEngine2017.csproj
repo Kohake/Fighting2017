@@ -69,6 +69,8 @@
   <ItemGroup>
     <Compile Include="Color.cs" />
     <Compile Include="Component.cs" />
+    <Compile Include="Content.cs" />
+    <Compile Include="ContentType.cs" />
     <Compile Include="Debug.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Game.cs" />
@@ -85,18 +87,21 @@
     <Compile Include="Rect.cs" />
     <Compile Include="RenderContext.cs" />
     <Compile Include="RenderManager.cs" />
-    <Compile Include="SfmlRenderContext.cs" />
-    <Compile Include="SfmlSprite.cs" />
-    <Compile Include="SfmlTexture.cs" />
-    <Compile Include="SfmlWindow.cs" />
+    <Compile Include="Sfml\SfmlRenderContext.cs" />
+    <Compile Include="Sfml\SfmlSprite.cs" />
+    <Compile Include="Sfml\SfmlTexture.cs" />
+    <Compile Include="Sfml\SfmlWindow.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="SpriteImplementation.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="TextureImplementation.cs" />
+    <Compile Include="TexturePackerFile.cs" />
     <Compile Include="Time.cs" />
+    <Compile Include="Transform.cs" />
     <Compile Include="Vector2.cs" />
     <Compile Include="Window.cs" />
     <Compile Include="WindowManager.cs" />
+    <Compile Include="XmlFile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

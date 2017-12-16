@@ -76,28 +76,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
-    <Compile Include="Avatar.cs" />
-    <Compile Include="BattleAvatar.cs" />
-    <Compile Include="BattleState.cs" />
+    <Compile Include="Avatars\BattleAvatar.cs" />
+    <Compile Include="Avatars\ThatGuy.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="ExampleCharacter.cs" />
+    <Compile Include="GameStates\BattleState.cs" />
     <Compile Include="Box.cs" />
-    <Compile Include="CharacterState.cs" />
-    <Compile Include="CharacterStateMapping.cs" />
+    <Compile Include="CharacterState\CharacterState.cs" />
+    <Compile Include="CharacterState\CharacterStateMapping.cs" />
     <Compile Include="DefaultValues.cs" />
     <Compile Include="FightingGame.cs" />
     <Compile Include="Fireball.cs" />
-    <Compile Include="GameplayInputBinding.cs" />
+    <Compile Include="InputBinding\GameplayInputBinding.cs" />
     <Compile Include="Hitbox.cs" />
     <Compile Include="Hittable.cs" />
-    <Compile Include="IdleState.cs" />
-    <Compile Include="InputBinding.cs" />
-    <Compile Include="MainMenuState.cs" />
-    <Compile Include="MenuAvatar.cs" />
-    <Compile Include="MenuInputBinding.cs" />
+    <Compile Include="CharacterState\IdleState.cs" />
+    <Compile Include="InputBinding\InputBinding.cs" />
+    <Compile Include="GameStates\MainMenuState.cs" />
+    <Compile Include="Avatars\MenuAvatar.cs" />
+    <Compile Include="InputBinding\MenuInputBinding.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GameState.cs" />
-    <Compile Include="Transform.cs" />
+    <Compile Include="GameStates\GameState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -108,6 +109,7 @@
       <Name>FightingEngine2017</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

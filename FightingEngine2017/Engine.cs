@@ -25,7 +25,7 @@ namespace FightingEngine2017
 
             Update();
             // Start main loop
-           //WindowManager.OnKeyDown += (WindowManager.InputEvent e) => {   }
+            //WindowManager.OnKeyDown += (WindowManager.InputEvent e) => {   }
         }
 
         public static void Update()
@@ -38,6 +38,8 @@ namespace FightingEngine2017
                 Game.Update(); // Combat collision and maybe some other stuff???
                 //RenderManager.FunctionThatDoesNotExist();
                 WindowManager.Update();
+
+                InputManager.SavePreviousInputs(); // Saves input data from last update
             }
         }
 

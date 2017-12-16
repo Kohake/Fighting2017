@@ -23,13 +23,10 @@ namespace FightingGame2017
                 MenuInputBinding binding = player.MenuBindings;
                 List<InputManager.Key> selectKeys = binding.GetKeys(MenuInputBinding.Button.Select);
 
-                foreach (InputManager.Key key in selectKeys)
+                if(InputManager.KeyPressed(selectKeys))
                 {
-                    if(InputManager.IsKeyDown(key))
-                    {
-                        RequestStateChange(new BattleState());
-                        return;
-                    }
+                    RequestStateChange(new BattleState());
+                    return;
                 }
             }
         }

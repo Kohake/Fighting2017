@@ -10,20 +10,24 @@ namespace FightingGame2017
         GameplayInputBinding bindings;
         public MenuInputBinding MenuBindings { get; private set; }
 
-        // Avatar ;
         BattleAvatar battleAvatar;
         MenuAvatar menuAvatar;
 
         public Player()
         {
             MenuBindings = new MenuInputBinding();
-
-            menuAvatar = AddComponent<MenuAvatar>();
+            menuAvatar = new MenuAvatar();
+            //menuAvatar = AddComponent<MenuAvatar>(); // Menu avatar is no longer a component
         }
 
         public override void Update()
         {
-            
+        }
+
+        public void SpawnBattleAvatar()
+        {
+            Character.CharacterIndex markedCharacter = menuAvatar.markedCharacter;
+            battleAvatar = Character.CreateBattleAvatar(markedCharacter);
         }
     }
 }

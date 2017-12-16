@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FightingGame2017
+namespace FightingGame2017.Avatars
 {
-    class BattleAvatar : Avatar
+    class ThatGuy : BattleAvatar
     {
-        
+
     }
 }

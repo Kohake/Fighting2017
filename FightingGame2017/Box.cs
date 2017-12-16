@@ -9,8 +9,7 @@ namespace FightingGame2017
 {
     public class Box : GameObject
     {
-        protected Transform transform;
-        protected Vector2<float> dimensions;
+        protected Vector2 dimensions;
 
         public Box()
         {
@@ -21,13 +20,13 @@ namespace FightingGame2017
             }
         }
 
-        public Box(Vector2<float> position, Vector2<float> dimensions)
+        public Box(Vector2 position, Vector2 dimensions)
         {
             SetPosition(position);
             this.dimensions = dimensions;
         }
 
-        public void SetPosition(Vector2<float> position)
+        public void SetPosition(Vector2 position)
         {
            transform.Position = position;
         }

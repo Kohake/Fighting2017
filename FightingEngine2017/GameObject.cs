@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace FightingEngine2017
 {
-    public class GameObject : IComparable
+    public abstract class GameObject : IComparable
     {
+        public Transform transform = new Transform();
+
         public virtual GameObjectManager.UpdateOrder GetUpdateOrder() { return GameObjectManager.UpdateOrder.Default; }
         private List<Component> components = new List<Component>();
 
@@ -39,6 +41,7 @@ namespace FightingEngine2017
         public GameObject()
         {
             Engine.GameObjectManager.Add(this);
+            AddComponent(transform);
         }
         /*
         public Component AddComponent(Component component)
@@ -68,6 +71,7 @@ namespace FightingEngine2017
         {
             components.Remove(component);
         }
+
         public T GetComponent<T>() where T : Component
         {
             Type t = typeof(T);

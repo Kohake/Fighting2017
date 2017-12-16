@@ -28,14 +28,13 @@ namespace FightingGame2017
             hurtboxes.Add(box);
         }
 
-        public void Add(Vector2<float> offset, Vector2<float> dimonsions)
+        public void Add(Vector2 offset, Vector2 dimensions)
         {
             // TODO: Fixit!
-            //Transform holderTransform = parent.transform
-            Vector2<float> holderPosition = new Vector2<float>(0, 0); // holderTransform.Position;
-            float dir = 1.0f; //holderTransform.Direction;
+            Vector2 holderPosition = ThisObject.transform.Position;
+            //float dir = 1.0f; //holderTransform.Direction;
 
-            Hitbox box = new Hitbox(new Vector2<float>(0, 0), new Vector2<float>(0, 0)); // new Hitbox(holderPosition + dir * offset, dimonsions);
+            Hitbox box = new Hitbox(ThisObject, holderPosition + offset, new Vector2<float>(0, 0)); // new Hitbox(holderPosition + dir * offset, dimonsions);
             hurtboxes.Add(box);
         }
     }

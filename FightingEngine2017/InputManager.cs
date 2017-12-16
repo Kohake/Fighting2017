@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.Reflection.Emit;
 
 namespace FightingEngine2017
 {
@@ -116,6 +118,7 @@ namespace FightingEngine2017
         }
 
         private static bool[] internalBuffer = new bool[(int)Key.KeyCount];
+        private static bool[] previousInternalBuffer = new bool[(int)Key.KeyCount];
 
         public InputManager()
         {
@@ -129,13 +132,16 @@ namespace FightingEngine2017
             }
         }
 
+        public void SavePreviousInputs()
+        {
+            internalBuffer.CopyTo(previousInternalBuffer, 0);
+        }
+
         private void OnKeyUp(object sender, InputStream.InputEvent e)
         {
-            Console.WriteLine("Key with code: " + e.key + " released.");
-
             if (e.key == Key.Unknown)
             {
-                // Don't explode, please
+                Debug.Warning("Reacting to unkown key being released!");
                 return;
             }
 
@@ -144,17 +150,50 @@ namespace FightingEngine2017
 
         private void OnKeyDown(object sender, InputStream.InputEvent e)
         {
-            Console.WriteLine("Key with code: " + e.key + " pressed!");
             if (e.key == Key.Unknown)
             {
-                // Don't explode, please
+                Debug.Warning("Reacting to unkown key being pressed!");
                 return;
             }
 
             internalBuffer[(int)e.key] = true;
         }
 
-        public static bool IsKeyDown(Key keycode)
+        public static bool KeyDown(List<InputManager.Key> keyList)
+        {
+            foreach (InputManager.Key key in keyList)
+            {
+                if (internalBuffer[(int)key])
+                    return true;
+            }
+
+            return false;
+        }
+
+        public static bool KeyPressed(List<InputManager.Key> keyList)
+        {
+            foreach (InputManager.Key key in keyList)
+            {
+                if (internalBuffer[(int)key] && previousInternalBuffer[(int)key] == false)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public static bool KeyReleased(List<InputManager.Key> keyList)
+        {
+            foreach (InputManager.Key key in keyList)
+            {
+                if (internalBuffer[(int)key] == false && previousInternalBuffer[(int)key])
+                    return true;
+            }
+
+            return false;
+        }
+
+        [Obsolete("Please refrain from checking for specific key down")]
+        public static bool KeyDown(Key keycode)
         {
             if (internalBuffer[(int)keycode])
                 return true;
@@ -162,9 +201,22 @@ namespace FightingEngine2017
             return false;
         }
 
-        public void Update()
+        [Obsolete("Please refrain from checking for specific key press")]
+        public static bool KeyPressed(Key keycode)
         {
+            if (internalBuffer[(int)keycode] && previousInternalBuffer[(int)keycode] == false)
+                return true;
 
+            return false;
+        }
+
+        [Obsolete("Please refrain from checking for specific key release")]
+        public static bool KeyReleased(Key keycode)
+        {
+            if (internalBuffer[(int)keycode] == false && previousInternalBuffer[(int)keycode])
+                return true;
+
+            return false;
         }
 
         private void OnDeviceChanged()

@@ -14,7 +14,7 @@ namespace FightingGame2017
         public delegate void HitResponse(Hitbox other);
         private HitResponse OnHit;
 
-        public Hitbox(GameObject parent, Vector2<float> position, Vector2<float> dimensions, HitResponse onHit = null)
+        public Hitbox(GameObject parent, Vector2 position, Vector2 dimensions, HitResponse onHit = null)
         {
             Parent = parent;
 
